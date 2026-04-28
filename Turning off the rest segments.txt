@@ -1,0 +1,12 @@
+    reg [3:0] hex_in;
+
+    always @*
+    begin
+        case (sel)
+            2'b00: begin an = 8'b11111110; hex_in = hex0; sseg[7] = dp_in[0]; end
+            2'b01: begin an = 8'b11111101; hex_in = hex1; sseg[7] = dp_in[1]; end
+            2'b10: begin an = 8'b11111011; hex_in = hex2; sseg[7] = dp_in[2]; end
+            2'b11: begin an = 8'b11110111; hex_in = hex3; sseg[7] = dp_in[3]; end
+            default: begin an = 8'b11111111; hex_in = 4'b0000; sseg[7] = 1'b1; end
+        endcase
+    end
